@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Zadanie 1</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body onload="x(); setInterval('x()', 1000 )">
+
+<div class="card text-center text-white bg-dark">
+    <div class="card-header">
+        Zadanie 1 - aplikacja
+    </div>
+</div>
+<div class="card text-center border-dark">
+    <div class="card-body">
+        <h5 class="card-title">New York</h5>
+        <p class="card-text" id="newYork"></p>
+    </div>
+</div>
+
+<div class="card text-center border-dark">
+    <div class="card-body">
+        <h5 class="card-title">Sydney</h5>
+        <p class="card-text" id="sydney"></p>
+    </div>
+</div>
+
+<div class="card text-center border-dark">
+    <div class="card-body">
+        <h5 class="card-title">Lublin</h5>
+        <p class="card-text" id="lublin"></p>
+    </div>
+</div>
+
+<script>
+    function x() {
+        let options = {
+                timeZone: 'America/New_York',
+                year: 'numeric',
+                month: 'numeric',
+                day: 'numeric',
+                hour: 'numeric',
+                minute: 'numeric',
+                second: 'numeric',
+            },
+            formatter = new Intl.DateTimeFormat([], options);
+
+        let optionsSydney = {
+                timeZone: 'Australia/Sydney',
+                year: 'numeric',
+                month: 'numeric',
+                day: 'numeric',
+                hour: 'numeric',
+                minute: 'numeric',
+                second: 'numeric',
+            },
+            formatterSydney = new Intl.DateTimeFormat([], optionsSydney);
+
+
+        let optionsPoland = {
+                timeZone: 'Europe/Warsaw',
+                year: 'numeric',
+                month: 'numeric',
+                day: 'numeric',
+                hour: 'numeric',
+                minute: 'numeric',
+                second: 'numeric',
+            },
+            formatterPoland = new Intl.DateTimeFormat([], optionsPoland);
+
+
+        document.getElementById("newYork").innerHTML = "<h1>New York  " + formatter.format(new Date()) + "<h1>";
+        document.getElementById("sydney").innerHTML = "<h1>Sydney  " + formatterSydney.format(new Date()) + "</h1>";
+        document.getElementById("lublin").innerHTML = "<h1>Lublin  " + formatterPoland.format(new Date()) + "</h1>";
+
+    }
+</script>
+</body>
+
+
+</html>
